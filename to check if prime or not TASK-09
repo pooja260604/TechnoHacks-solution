@@ -1,0 +1,47 @@
+#include <stdio.h>
+int isPrime(int num);
+int main() 
+{
+    int num;
+    char choice;
+
+    do 
+    {
+        printf("Enter a number: ");
+        scanf("%d", &num);
+
+        if (num <= 1) 
+        {
+            printf("%d is not a prime number.\n", num);
+        } 
+        else if (isPrime(num)) 
+        {
+            printf("%d is a prime number.\n", num);
+        } 
+        else 
+        {
+            printf("%d is not a prime number.\n", num);
+        }
+        printf("----------------\n");
+        printf("Do you want to check another number? (y/n): ");
+        scanf(" %c", &choice);  
+        printf("----------------\n");
+
+    } 
+    while (choice == 'y' || choice == 'Y');
+    printf("Thank you for using the prime number checker. Goodbye!\n");
+
+    return 0;
+}
+
+int isPrime(int num) 
+{
+    for (int i = 2; i <= num / 2; i++) 
+    {
+        if (num % i == 0) 
+        {
+            return 0;
+        }
+    }
+    return 1; 
+}
